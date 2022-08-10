@@ -9,8 +9,8 @@
 
 body {
     font-family: "Poppins", sans-serif;
-    height: 100vh;
-    width: 100vw;
+    max-width: 1800px;
+    margin: 0 auto;
 }
 
 header {
@@ -89,94 +89,109 @@ border: 1.5px solid var(--green);
 border-radius: 8px;
 }
 
-/*CONTAINER VITRINE*/
-
-.containerVitrine {
-display: flex;
-width: 100%;
-justify-content: space-evenly;
-border-radius: 50px 0;
+.layoutVitrine{ 
+    display: flex;
+    justify-content: space-between;
 }
 
 /* LISTA PRODUTO */
-
 .containerListaProdutos {
-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.ListaPrincipal {
-list-style: none;
-display: flex;
-flex-wrap: wrap;
-justify-content: space-between;
-margin-top: 40px;
-width: 90%;
+.listaVitrine{
+    display: flex;
+    flex-wrap: wrap;
+    
 }
 
-.listaProdutos{
+@media (max-width: 768px) {
+    .filtersContainer{
+        display: flex;
+        flex-direction: column;
+    }
+    .containerBuscaPorNome {
+        margin-top: 15px;
+}
+    .layoutVitrine {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .containerListaProdutos {
+       height: 430px;
+       width: 430px;
+       overflow-x: auto;
+    }
+}
+
+.itensProdutos{
 border-radius: 8px;
 transition: ease-in-out 0.1s;
-width: calc(95% / 4);
 margin-bottom: 1.6rem;
 padding: 0.8rem;
+width: 400px;
+height: auto;
 }
 
-.listaProdutos:hover {
+.itensProdutos:hover {
 box-shadow: 3px 3px 13px 1px var(--black);
 }
 
-.listaProdutos img {
+.itensProdutos img {
 width: 80%;
 }
 
-.listaProdutos h3 {
+.itensProdutos h3 {
 font-size: 1.3rem;
 font-weight: 500;
 margin: 10px 0 15px;
 color: var(--black);
 }
 
-.listaProdutos p {
+.itensProdutos p {
 font-size: 1.1rem;
 color: var(--dark-gray);
 font-weight: 400;
 margin: 15px 0;
 }
-.listaProdutos span {
-font-size: 1rem;
+.itensProdutos span {
+display: flex;
+flex-wrap: wrap;
+font-size: 1.2rem;
 font-weight: 500;
 margin-top: 10px;
-display: inline-block;
 color: var(--black);
 }
-.listaProdutos ol {
+.itensProdutos ol {
 list-style: decimal;
 color: var(--dark-gray);
 font-size: 0.9rem;
 margin-left: 15px;
 }
-.listaProdutos ol li {
+.itensProdutos ol li {
 margin: 0;
 width: 100%;
 }
-.listaProdutos button {
+.itensProdutos button {
 background-color: var(--gray);
 border-radius: 8px;
 border: var(--green) 1px solid;
 color: var(--green);
 transition: 0.5s;
 }
-.listaProdutos button:hover {
+.itensProdutos button:hover {
 background-color: var(--green);
 border: var(--green) 1px solid;
 color: var(--white);
 }
-.listaProdutos div {
+.itensProdutos div {
 display: flex;
 justify-content: space-between;
 padding: 0.3rem;
 }
-
 
 /*ADICIONAR CARINHO*/
 
@@ -185,7 +200,7 @@ padding: 0.3rem;
     font-size: 0.9rem;
 } 
 
- .carrinho ul{
+ .lista__carrinho{
     background-color: var(--gray);
     height: 400px;
     width: 500px;
@@ -193,7 +208,7 @@ padding: 0.3rem;
     overflow-x: hidden;
  }
 
- .carrinho ul li{
+ .lista__carrinho li{
     display: flex;
     align-items: center;
     position: relative;
@@ -205,41 +220,41 @@ padding: 0.3rem;
     color: var(--blue);
  } 
  
- .carrinho ul li img{
+ .lista__carrinho li img{
      max-width: 80px;
  }
  
- .carrinho ul li span{
+ .lista__carrinho li span{
     width: 0;
     height: 0;
     font-size: 0;
  }
 
- .carrinho ul li h3{
+ .lista__carrinho li h3{
     margin: 20px;
     font-size: 1.2rem;
  }
 
- .carrinho ul li p{
+ .lista__carrinho li p{
     font-size:1rem;
     margin: 12px;
     display: flex;
     justify-content: center;
  }
  
- .carrinho ul li button{
+ .lista__carrinho li button{
      background-color: var(--blue);
      position: absolute;
      width: 30px;
      height: 30px;
      border-radius: 20px;
      color: transparent;
-     margin-left:370px;
+     margin-left:375px;
      margin-bottom: 72px;
      font-size: 0;
  }
  
- .carrinho ul li button::before{
+ .lista__carrinho li button::before{
      content: "X";
      font-size: 1rem;
      display: block;
@@ -269,54 +284,5 @@ padding: 0.3rem;
      margin-top: 2.5rem;
  } 
 
-    @media (max-width: 768px) {
-    /*VITRINE*/
-    .containerVitrine {
-        display: flex;
-        width: 100%;
-        justify-content:space-between;
-        }
-        
-        /* LISTA PRODUTO */
-        
-        .containerListaProdutos {
-        width: 90%;
-        }
-        
-        .ListaPrincipal {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        width: 90%;
-        }
-        
-        .listaProdutos{
-        width: 80%;
-        }
-    
-        .listaProdutos img {
-        width: 80%;
-        }
-    
-        .listaProdutos ol li {
-        width: 100%;
-        }
-    
-        .listaProdutos div {
-        display: flex;
-        justify-content: space-between;
-        margin:0 auto
-        }
-    }
-
-    @media (max-width: 1500px){
-    /*CARINHO*/
-        .carrinho ul{
-            margin: 0 auto;
-        }
-
-        .informacoes_carrinho{
-            margin: 0 auto;
-        }
-    }
-    
+     
+     

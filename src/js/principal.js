@@ -1,6 +1,6 @@
 // LISTAR ITENS
-let vitrine = document.querySelector(".containerVitrine");
-let itensVitrine = document.querySelector(".listaVitrine");
+let secaoProdutos = document.querySelector(".containerListaProdutos");
+let listaVitrine = document.querySelector(".listaVitrine");
 
 function listarProdutos(listaProdutos, departamento) {
 
@@ -8,20 +8,19 @@ function listarProdutos(listaProdutos, departamento) {
 
   if (listaProdutos.length >= 1) {
     for (let i in listaProdutos) {
-      let produto = listaProdutos[i];
 
-      let cardProduto = criarCardProduto(produto);
+      let cardProduto = criarCardProduto(listaProdutos[i]);
 
       departamento.appendChild(cardProduto);
     }
    }
 }
-listarProdutos(produtos, vitrine);
+listarProdutos(produtos, listaVitrine);
  
 // CRIANDO CARDS
 function criarCardProduto(produto) {
-  let lista = document.createElement("li");
-  lista.className = "listaProdutos";
+  let ItensListaProdutos = document.createElement("li");
+  ItensListaProdutos.className = "itensProdutos";
 
   let nomeDoProduto = produto.nome;
   let Nome = document.createElement("h3");
@@ -59,9 +58,9 @@ function criarCardProduto(produto) {
     botaoComprar.id = id;
   }
 
-  lista.append(imagem,Nome,Categoria,informacoes,Preco,botaoComprar);
+  ItensListaProdutos.append(imagem,Nome,Categoria,informacoes,Preco,botaoComprar);
   
-  return lista;
+  return ItensListaProdutos;
 }
 
 // MENU CABECALHO
@@ -71,23 +70,23 @@ let botaoPanificadora = document.querySelector("#panificadora");
 let botaoLaticinio = document.querySelector("#laticinio");
 
 botaoTodosProdutos.addEventListener("click", () => {
-  listarProdutos(produtos, vitrine);
+  listarProdutos(produtos, secaoProdutos);
 });
 botaoHortifruti.addEventListener("click", () => {
-  listarProdutos(listarHortifruti(produtos), vitrine);
+  listarProdutos(listarHortifruti(produtos), secaoProdutos);
 });
 botaoPanificadora.addEventListener("click", () => {
-  listarProdutos(listarPanificadora(produtos), vitrine);
+  listarProdutos(listarPanificadora(produtos), secaoProdutos);
 });
 botaoLaticinio.addEventListener("click", () => {
-  listarProdutos(listarLaticinio(produtos), vitrine);
+  listarProdutos(listarLaticinio(produtos), secaoProdutos);
 });
 
 function adicionar(produto) {
   if (produto !== undefined) {
     carrinhoCompras.push(produto);
 
-    listarProdutos(carrinhoCompras, itensVitrine);
+    listarProdutos(carrinhoCompras, listaVitrine);
   }
 }
 
@@ -126,7 +125,7 @@ listarLaticinio(produtos);
 
 // ADICIONAR PRODUTO
 let listaCarrinho = document.querySelector(".lista__carrinho")
-vitrine.addEventListener("click", interceptandoProduto);
+secaoProdutos.addEventListener("click", interceptandoProduto);
 
 let carrinhoCompras = [];
 
@@ -179,7 +178,7 @@ inputBusca.addEventListener("keyup", function (event) {
 
     let resultadoBusca = busca(Nomes);
 
-    listarProdutos(resultadoBusca, vitrine);
+    listarProdutos(resultadoBusca, secaoProdutos);
   }
 });
 

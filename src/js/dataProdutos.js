@@ -9,7 +9,7 @@ const produtos = [
         promocao: true,
         precoPromocao: 0.99,
         componentes: [
-        'Potássio ',
+        ' Potássio ',
         'Vitamina B6 ',
         'Vitamina C ',
         'Folatos'
@@ -26,7 +26,7 @@ const produtos = [
         promocao: false,
         precoPromocao: 0,
         componentes: [
-        'Fibras ',
+        ' Fibras ',
         'Vitamina C ',
         'Cálcio ',
         'Ferro'
@@ -43,7 +43,7 @@ const produtos = [
         promocao: true,
         precoPromocao: 1.49,
         componentes: [
-        'Potássio ',
+        ' Potássio ',
         'Vitamina A ',
         'Vitamina E ',
         'Vitamina C'
@@ -60,7 +60,7 @@ const produtos = [
         promocao: true,
         precoPromocao: 2.49,
         componentes: [
-        'Cálcio ',
+        ' Cálcio ',
         'Sódio ',
         'Fibra Alimentar ',
         'Proteínas'
@@ -77,7 +77,7 @@ const produtos = [
         promocao: false,
         precoPromocao: 0.99,
         componentes: [
-        'Carboidratos ',
+        ' Carboidratos ',
         'Proteínas ',
         'Gorduras totais'
     ]
