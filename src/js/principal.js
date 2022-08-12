@@ -31,9 +31,14 @@ function criarCardProduto(produto) {
   Categoria.innerText = categoriaDoProduto;
 
   let informacoesDoProduto = produto.componentes;
-  let informacoes = document.createElement("span");
-  informacoes.innerText = `Componentes: ${informacoesDoProduto}`;
-  
+  let listaInformacoes = document.createElement("ol");
+  for (let i in informacoesDoProduto){
+    let informacoes = document.createElement("li")
+    informacoes.innerText = informacoesDoProduto[i]
+    listaInformacoes.appendChild(informacoes)
+  }
+  listaInformacoes.classList.add("ListaInformacoes")
+
   let imagem = document.createElement("img");
   let img = produto.img;
   imagem.src = img;
@@ -58,7 +63,7 @@ function criarCardProduto(produto) {
     botaoComprar.id = id;
   }
 
-  ItensListaProdutos.append(imagem,Nome,Categoria,informacoes,Preco,botaoComprar);
+  ItensListaProdutos.append(imagem,Nome,Categoria,listaInformacoes,Preco,botaoComprar);
   
   return ItensListaProdutos;
 }
@@ -185,9 +190,9 @@ inputBusca.addEventListener("keyup", function (event) {
 function busca(Pesquisa) {
   let buscarItens = [];
   for (let i in produtos) {
-    let pesquisa = Pesquisa.toLowerCase();
-    let nomeDosItens = produtos[i].nome.toLowerCase();
-    let categoriaDosItens = produtos[i].categoria.toLowerCase();
+    let pesquisa = Pesquisa.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    let nomeDosItens = produtos[i].nome.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    let categoriaDosItens = produtos[i].categoria.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
     if (
       nomeDosItens.includes(pesquisa) ||

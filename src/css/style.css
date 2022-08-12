@@ -1,3 +1,7 @@
+/* *{
+    outline: 1px solid red;
+} */
+
 :root{
     --white: #F6F6F7;
     --black: #000000;
@@ -22,7 +26,7 @@ box-shadow: 0px 4px 40px -20px var(--black);
 }
 
 main {
-margin: 0 70px;
+margin: 0 auto;
 }
 
 /* BOTOES  */
@@ -98,11 +102,14 @@ border-radius: 8px;
 .containerListaProdutos {
     display: flex;
     flex-wrap: wrap;
+    list-style: none;
+    justify-content:space-evenly
 }
 
 .listaVitrine{
     display: flex;
     flex-wrap: wrap;
+    justify-content:space-evenly
     
 }
 
@@ -110,10 +117,12 @@ border-radius: 8px;
     .filtersContainer{
         display: flex;
         flex-direction: column;
+        overflow-y: auto;
     }
+
     .containerBuscaPorNome {
         margin-top: 15px;
-}
+    }
     .layoutVitrine {
         display: flex;
         flex-wrap: wrap;
@@ -124,6 +133,13 @@ border-radius: 8px;
        height: 430px;
        width: 430px;
        overflow-x: auto;
+    }
+
+    .itensProdutos ol li {
+        list-style: none;
+    }
+    .lista__carrinho{
+        margin-top: 50px;
     }
 }
 
@@ -157,14 +173,11 @@ color: var(--dark-gray);
 font-weight: 400;
 margin: 15px 0;
 }
-.itensProdutos span {
-display: flex;
-flex-wrap: wrap;
-font-size: 1.2rem;
-font-weight: 500;
-margin-top: 10px;
-color: var(--black);
+
+.ListaInformacoes{
+    list-style: decimal;
 }
+
 .itensProdutos ol {
 list-style: decimal;
 color: var(--dark-gray);
@@ -174,6 +187,7 @@ margin-left: 15px;
 .itensProdutos ol li {
 margin: 0;
 width: 100%;
+font-size: 1.2rem;
 }
 .itensProdutos button {
 background-color: var(--gray);
@@ -242,6 +256,10 @@ padding: 0.3rem;
     justify-content: center;
  }
  
+ .lista__carrinho .ListaInformacoes{
+    display: none;
+ }
+
  .lista__carrinho li button{
      background-color: var(--blue);
      position: absolute;
@@ -265,7 +283,7 @@ padding: 0.3rem;
      background-color: var(--gray);
      padding: 0.8rem;
      min-height: 220px;
-     width: 500px;
+     width: 540px;
  }
  
  .informacoes_carrinho p{
